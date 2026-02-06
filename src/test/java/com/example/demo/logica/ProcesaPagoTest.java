@@ -44,4 +44,15 @@ class ProcesaPagoTest {
     //las validaciones en Código.
     // ESTAN PARA REPRESENTAR LAS REGLAS DE NEGOCIO.
 
+
+    @Test
+    void Dado_MontoNopermitido_CuandoProcesePago_Entonces_ArrojaException() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> procesaPago.procesarPago("Premium", 2000));
+    }
+
+    @Test
+    void x() {
+        String response = procesaPago.procesarPago("Premium", 1000);
+        Assertions.assertEquals("PSE", response);
+    }
 }

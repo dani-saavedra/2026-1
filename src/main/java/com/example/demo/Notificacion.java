@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 public class Notificacion {
 
     public void notificar(int monto) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        System.out.println("Si si, envie la notificacion");
+
     }
 }

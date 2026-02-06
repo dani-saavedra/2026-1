@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: demo
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    url: jdbc:mysql://${MYSQL_URL}:3306/${MYSQL_DB}
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+  flyway:
+    enabled: true
