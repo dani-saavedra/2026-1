@@ -31,6 +31,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation("au.com.dius.pact.provider:junit5:4.6.17")
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation("com.h2database:h2:2.3.232")
     testImplementation("au.com.dius.pact.provider:junit5spring:4.6.17")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
