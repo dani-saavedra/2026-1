@@ -1,12 +1,11 @@
 name: Continuous Integration
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
-      - develop
-      - trunk
-      - dev
-      - stage
 jobs:
   build:
     runs-on: ubuntu-latest
