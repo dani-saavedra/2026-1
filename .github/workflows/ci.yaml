@@ -21,6 +21,8 @@ jobs:
         name: Instalando gradle
       - name: Compilando ando
         run: ./gradlew build
+      - name: Validacion seguridad
+        run: ./gradlew dependencyCheckAnalyze
       - name: Build + Sonar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -29,3 +31,4 @@ jobs:
             -Dsonar.projectKey=demo \
             -Dsonar.host.url=${{ secrets.SONAR_URL }} \
             -Dsonar.login=$SONAR_TOKEN
+      
