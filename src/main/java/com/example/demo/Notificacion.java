@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 public class Notificacion {
 
     public void notificar(int monto) {
-        System.out.println("Si si, envie la notificacion");
+
 
     }
 }
