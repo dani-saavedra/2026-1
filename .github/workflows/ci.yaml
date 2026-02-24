@@ -23,8 +23,8 @@ jobs:
         run: ./gradlew build
       - name: Dependency Check
         run: |
-          wget https://github.com/jeremylong/DependencyCheck/releases/latest/download/dependency-check-9.1.0-release.zip
-          unzip dependency-check-9.1.0-release.zip
+          wget https://github.com/dependency-check/DependencyCheck/releases/download/v12.2.0/dependency-check-12.2.0-release.zip
+          unzip dependency-check-12.2.0-release.zip
           dependency-check/bin/dependency-check.sh \
             --scan . \
             --failOnCVSS 7
