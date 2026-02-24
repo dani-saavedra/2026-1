@@ -21,8 +21,13 @@ jobs:
         name: Instalando gradle
       - name: Compilando ando
         run: ./gradlew build
-      - name: Validacion seguridad
-        run: ./gradlew dependencyCheckAnalyze
+      - name: Dependency Check
+        run: |
+          wget https://github.com/jeremylong/DependencyCheck/releases/latest/download/dependency-check-9.1.0-release.zip
+          unzip dependency-check-9.1.0-release.zip
+          dependency-check/bin/dependency-check.sh \
+            --scan . \
+            --failOnCVSS 7
       - name: Build + Sonar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
