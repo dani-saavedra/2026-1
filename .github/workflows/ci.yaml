@@ -21,3 +21,12 @@ jobs:
         name: Instalando gradle
       - name: Compilando ando
         run: ./gradlew build
+      - name: SonarQube Scan
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_URL: ${{ secrets.SONAR_URL }}
+        run: |
+          mvn sonar:sonar \
+            -Dsonar.projectKey=demo \
+            -Dsonar.host.url=$SONAR_URL \
+            -Dsonar.login=$SONAR_TOKEN
