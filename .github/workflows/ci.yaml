@@ -21,16 +21,11 @@ jobs:
         name: Instalando gradle
       - name: Compilando ando
         run: ./gradlew build
-      - name: SonarQube Scan
-        uses: sonarsource/sonarqube-scan-action@v2
+      - name: Build + Sonar
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_URL }}
-        with:
-          args: >
-            -Dsonar.projectKey=demo
-      - name: Check Quality Gate
-        uses: sonarsource/sonarqube-quality-gate-action@v1
-        timeout-minutes: 5
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          ./gradlew build sonarqube \
+            -Dsonar.projectKey=demo \
+            -Dsonar.host.url=${{ secrets.SONAR_URL }} \
+            -Dsonar.login=$SONAR_TOKEN
