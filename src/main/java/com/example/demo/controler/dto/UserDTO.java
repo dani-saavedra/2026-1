@@ -1,4 +1,4 @@
 package com.example.demo.controler.dto;
 
-public record UserDTO(String email, String name) {
+public record UserDTO(String email, String name,String lastName) {
 }

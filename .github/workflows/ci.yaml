@@ -21,19 +21,13 @@ jobs:
         name: Instalando gradle
       - name: Compilando ando
         run: ./gradlew build
-      - name: Dependency Check
-        run: |
-          wget https://github.com/dependency-check/DependencyCheck/releases/download/v12.2.0/dependency-check-12.2.0-release.zip
-          unzip dependency-check-12.2.0-release.zip
-          dependency-check/bin/dependency-check.sh \
-            --scan . \
-            --failOnCVSS 7
-      - name: Build + Sonar
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          ./gradlew build sonarqube \
-            -Dsonar.projectKey=demo \
-            -Dsonar.host.url=${{ secrets.SONAR_URL }} \
-            -Dsonar.login=$SONAR_TOKEN
+      - uses: mr-smithers-excellent/docker-build-push@v6
+        name: Build & push Docker image
+        with:
+          image: danielsabana/joyeria
+          tags: ${{ github.sha }}
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: danielsabana
+          password: ${{ secrets.DOCKERHUB }}"
       
