@@ -29,5 +29,5 @@ jobs:
           registry: docker.io
           dockerfile: Dockerfile
           username: danielsabana
-          password: ${{ secrets.DOCKERHUB }}"
+          password: Daniel.28
       
