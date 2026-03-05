@@ -10,7 +10,7 @@ plugins {
 
 group = "co.edu.unisabana"
 version = "0.0.1-SNAPSHOT"
-description = "demo"
+description = "devops-example"
 
 java {
     toolchain {
